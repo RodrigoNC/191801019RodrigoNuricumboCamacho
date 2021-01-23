@@ -9,8 +9,9 @@
  * @author Rodrigo
  */
 public class Condicionales {
-    public static void main(String args){
+    public static void main(String args[]){
         int Condición1;
         int condición2;
+        System.out.println("Hola");
     }
 }
