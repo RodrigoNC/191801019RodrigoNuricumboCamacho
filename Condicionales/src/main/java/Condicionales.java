@@ -10,6 +10,7 @@
  */
 public class Condicionales {
     public static void main(String args){
-    
-}
+        int Condición1;
+        int condición2;
+    }
 }
