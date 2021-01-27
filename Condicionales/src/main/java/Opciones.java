@@ -17,7 +17,7 @@ public class Opciones {
         numero1= scanner.nextInt();
         System.out.println("Dame el segundo valor: ");
         numero2= scanner.nextInt();
-        System.out.println("Opción 1: Suma\n Opción 2: Resta");
+        System.out.println("Opción 1: Suma\nOpción 2: Resta");
         int opcion= scanner.nextInt();
         switch(opcion)
         {
