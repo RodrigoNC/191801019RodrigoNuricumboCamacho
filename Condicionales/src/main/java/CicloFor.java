@@ -19,5 +19,11 @@ public class CicloFor {
         {
             System.out.println(i);
         }
+        int i=serie;
+        while(i>=0)
+        {
+            System.out.println(i);
+            i--;
+        }
     }
 }
