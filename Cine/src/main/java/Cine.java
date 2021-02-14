@@ -53,7 +53,7 @@ public class Cine {
         }
         return menu;
     }
-    //Método para determinar su el cine está abierto en base a una hora ingresada
+    //Método para determinar si el cine está abierto en base a una hora ingresada
     public boolean cineAbierto(int hora){
         if(hora<horaInicio || hora>horaFin){
             return false;
