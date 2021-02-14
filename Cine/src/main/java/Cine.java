@@ -38,9 +38,11 @@ public class Cine {
     public void agregarPelicula(Pelicula pelicula){
         peliculas.add(pelicula);
     }
+    //Método para calcular la cantidad de películas
     public int cantidadPeliculas(){
         return peliculas.size();
     }
+    //Método para mostrar un menú de todas las películas
     public String menu(){
         String menu= "";
         int contador= 1;
@@ -51,6 +53,7 @@ public class Cine {
         }
         return menu;
     }
+    //Método para determinar su el cine está abierto en base a una hora ingresada
     public boolean cineAbierto(int hora){
         if(hora<horaInicio || hora>horaFin){
             return false;
