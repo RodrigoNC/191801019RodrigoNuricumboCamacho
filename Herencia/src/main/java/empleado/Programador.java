@@ -13,13 +13,13 @@ public class Programador extends Empleado{
     private int sueldo;
     
     public Programador(int sueldo, int dni, String nombre, String apellidoPaterno, String apellidoMaterno){
-        this.sueldo=sueldo;
         super(dni, nombre, apellidoPaterno, apellidoMaterno);
+        this.sueldo=sueldo;
     }
     
     public Programador(){
-        this.sueldo=0;
         super();
+        this.sueldo=0;
     }
     
     @Override
