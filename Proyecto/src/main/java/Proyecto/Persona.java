@@ -9,38 +9,33 @@ package Proyecto;
  *
  * @author Rodrigo
  */
-public class Cliente {
-    private int rfc;
-    private String nombre, apellidoPaterno, apellidoMaterno, sexo;
+public class Persona {
+
+    String nombre;
+    private String apellidoPaterno, apellidoMaterno, genero;
+    private int edad, rfc;
     
-    public Cliente(int rfc, String nombre, String apellidoPaterno, String apellidoMaterno, String sexo){
-        this.rfc=rfc;
+    public Persona(String nombre, String apellidoPaterno, String apellidoMaterno, String genero, int edad, int rfc){
         this.nombre=nombre;
         this.apellidoPaterno=apellidoPaterno;
         this.apellidoMaterno=apellidoMaterno;
-        this.sexo=sexo;
+        this.genero=genero;
+        this.edad=edad;
+        this.rfc=rfc;
     }
     
-    public Cliente(){
-        this.rfc=0;
+    public Persona(){
         this.nombre="";
         this.apellidoPaterno="";
         this.apellidoMaterno="";
-        this.sexo="";
+        this.genero="";
+        this.edad=0;
+        this.rfc=0;
     }
-    
     
     @Override
     public String toString(){
-        return "Cliente\nNombre: "+nombre+"\nApellido paterno: "+apellidoPaterno+"\nApellido materno: "+apellidoMaterno+"\nRFC: "+rfc+"\nSexo: "+sexo;
-    }
-
-    public int getRfc() {
-        return rfc;
-    }
-
-    public void setRfc(int rfc) {
-        this.rfc = rfc;
+        return "Nombre: "+nombre+"\nApellido Paterno: "+apellidoPaterno+"\nApellido Materno: "+apellidoMaterno+"\nGénero: "+genero+"\nEdad: "+edad+"\nRFC: "+rfc;
     }
 
     public String getNombre() {
@@ -66,12 +61,28 @@ public class Cliente {
     public void setApellidoMaterno(String apellidoMaterno) {
         this.apellidoMaterno = apellidoMaterno;
     }
-    
-    public String getSexo(){
-        return sexo;
+
+    public String getGenero() {
+        return genero;
     }
-    
-    public void setSexo(String sexo){
-        this.sexo=sexo;
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public int getRfc() {
+        return rfc;
+    }
+
+    public void setRfc(int rfc) {
+        this.rfc = rfc;
     }
 }
