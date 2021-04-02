@@ -10,7 +10,7 @@
  */
 public class NumeroAleatorio {
     public static void main(String args[]){
-        int max = 10; 
+        int max = 43; 
         int min = 1; 
         int range = max - min + 1; 
         int rand = (int)(Math.random() * range) + min; 
