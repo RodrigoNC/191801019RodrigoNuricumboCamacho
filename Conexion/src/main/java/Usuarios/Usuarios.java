@@ -4,31 +4,57 @@
  * and open the template in the editor.
  */
 package Usuarios;
-
-import java.util.Date;
-
 /**
  *
  * @author Rodrigo
  */
 public class Usuarios {
     private int id;
-    private String nombreUsuario, contrasena;
-    private Date fechaAlta;
+    private String nombreUsuario, contrasena, fechaAlta;
+    private boolean estatus;
 
-    public Usuarios(int id, String nombreUsuario, String contrasena, Date fechaAlta) {
+    public Usuarios(int id, String nombreUsuario, String contrasena, String fechaAlta, boolean estatus) {
         this.id = id;
         this.nombreUsuario = nombreUsuario;
         this.contrasena = contrasena;
         this.fechaAlta = fechaAlta;
+        this.estatus = estatus;
+    }
+    
+    public Usuarios(String nombreUsuario, String contrasena, boolean estatus){
+        this.nombreUsuario = nombreUsuario;
+        this.contrasena = contrasena;
+        this.estatus = estatus;
+    }
+    
+    public Usuarios(int id){
+        this.id = id;
+    }
+    
+    public Usuarios(int id, String nombreUsuario, String contrasena, boolean estatus){
+        this.id = id;
+        this.nombreUsuario = nombreUsuario;
+        this.contrasena = contrasena;
+        this.estatus = estatus;
     }
 
     public Usuarios() {
     }
 
+    public Usuarios(String nombreUsuario, String contrasena){
+        this.nombreUsuario = nombreUsuario;
+        this.contrasena = contrasena;
+    }
+    
+    public Usuarios(int id, String nombreUsuario, String contrasena){
+        this.id = id;
+        this.nombreUsuario = nombreUsuario;
+        this.contrasena = contrasena;
+    }
+    
     @Override
     public String toString() {
-        return "Usuarios:" + "\nId= " + id + "\nnombreUsuario= " + nombreUsuario + "\nContrasena=" + contrasena + "\nFechaAlta= " + fechaAlta;
+        return " " + nombreUsuario;
     }
 
     public int getId() {
@@ -55,12 +81,26 @@ public class Usuarios {
         this.contrasena = contrasena;
     }
 
-    public Date getFechaAlta() {
+
+
+    public boolean isEstatus() {
+        return estatus;
+    }
+
+    public void setEstatus(boolean estatus) {
+        this.estatus = estatus;
+    }
+
+    public String getFechaAlta() {
         return fechaAlta;
     }
 
-    public void setFechaAlta(Date fechaAlta) {
+    public void setFechaAlta(String fechaAlta) {
         this.fechaAlta = fechaAlta;
+    }
+    
+    public String imprimir() {
+        return "Usuarios:" + "\nId= " + id + "\nnombreUsuario= " + nombreUsuario + "\nContrasena=" + contrasena + "\nFechaAlta= " + fechaAlta +"\nEstatus= " +estatus;
     }
     
 }

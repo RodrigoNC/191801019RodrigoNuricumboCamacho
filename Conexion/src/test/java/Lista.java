@@ -1,9 +1,14 @@
 
+import DaoUsuarios.DaoUsuarios;
+import Usuarios.Usuarios;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import Usuarios.Usuarios;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,12 +20,17 @@ import java.sql.Statement;
  *
  * @author Rodrigo
  */
-public class Conexion {
-    public static void main(String[] args) {
-        String url="jdbc:mysql://localhost:3306/usuarios?zeroDateTimeBehavior=CONVERT_TO_NULL";
-        try{
-            //Crear conexión con base de datos
-            Connection conexion= DriverManager.getConnection(url, "root", "");
+public class Lista {
+    public static void main(String[] args) throws SQLException{
+        List <Usuarios> listaUsuarios = new ArrayList<>();
+        listaUsuarios = DaoUsuarios.listausuarios();
+        for (Usuarios usuario: listaUsuarios){
+           System.out.println(usuario);
+        }
+}
+            /*//Crear conexión con base de datos
+            //Connection conexion= DriverManager.getConnection(url, "root", "");
+            Connection conexion = Conexion.getConnection();
             //Crear una declaración para la base de datos
             Statement declaracion= conexion.createStatement();
             String SQL= "SELECT * FROM usuarios";
@@ -35,15 +45,7 @@ public class Conexion {
             System.out.println(resultado.getString("fecha_de_alta"));
         }
             //Cerrar toda conexión con la base de datos
-            resultado.close();
-            declaracion.close();
-            conexion.close();
-        }catch(SQLException ex){
-            ex.printStackTrace(System.out);
-        }
+            Conexion.Close(conexion, declaracion, resultado);
     }
-
-    private static void While(boolean next) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+*/
 }

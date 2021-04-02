@@ -1,4 +1,7 @@
 
+import Conexion.Conexion;
+import Usuarios.Usuarios;
+import DaoUsuarios.DaoUsuarios;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,11 +21,17 @@ import java.util.Scanner;
  * @author Rodrigo
  */
 public class Eliminar {
-    public static void main(String[] args) {
-        String url="jdbc:mysql://localhost:3306/usuarios?zeroDateTimeBehavior=CONVERT_TO_NULL";
-        try{
-            //Crear conexión con base de datos
-            Connection conexion= DriverManager.getConnection(url, "root", "");
+    public static void main(String[] args) throws SQLException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese el id del usuario a eliminar: ");
+        int id= scanner.nextInt();
+        scanner.nextLine();
+        Usuarios usuario = new Usuarios(id);
+        DaoUsuarios.eliminar(usuario);
+    }
+            /*//Crear conexión con base de datos
+            //Connection conexion= DriverManager.getConnection(url, "root", "");
+            Connection conexion = Conexion.getConnection();
             //Crear una declaración para la base de datos
             String SQL= "DELETE FROM usuarios WHERE id = ?";
             PreparedStatement declaracion= conexion.prepareStatement(SQL);
@@ -33,14 +42,6 @@ public class Eliminar {
             declaracion.setInt(1, id); 
             declaracion.executeUpdate();
             System.out.println("Eliminado con éxito");
-            declaracion.close();
-            conexion.close();
-        }catch(SQLException ex){
-            ex.printStackTrace(System.out);
-        }
-    }
-
-    private static void While(boolean next) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+            Conexion.Close(conexion, declaracion);
+    }*/
 }
