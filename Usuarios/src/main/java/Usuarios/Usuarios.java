@@ -15,12 +15,14 @@ public class Usuarios {
     private int id;
     private String nombreUsuario, contrasena;
     private Date fechaAlta;
+    private boolean estatus;
 
-    public Usuarios(int id, String nombreUsuario, String contrasena, Date fechaAlta) {
+    public Usuarios(int id, String nombreUsuario, String contrasena, Date fechaAlta, boolean estatus) {
         this.id = id;
         this.nombreUsuario = nombreUsuario;
         this.contrasena = contrasena;
         this.fechaAlta = fechaAlta;
+        this.estatus = estatus;
     }
 
     public Usuarios() {
@@ -28,7 +30,7 @@ public class Usuarios {
 
     @Override
     public String toString() {
-        return "Usuarios:" + "\nId= " + id + "\nnombreUsuario= " + nombreUsuario + "\nContrasena=" + contrasena + "\nFechaAlta= " + fechaAlta;
+        return "Usuarios:" + "\nId= " + id + "\nnombreUsuario= " + nombreUsuario + "\nContrasena=" + contrasena + "\nFechaAlta= " + fechaAlta +"\nEstatus= " +estatus;
     }
 
     public int getId() {
@@ -61,6 +63,14 @@ public class Usuarios {
 
     public void setFechaAlta(Date fechaAlta) {
         this.fechaAlta = fechaAlta;
+    }
+
+    public boolean isEstatus() {
+        return estatus;
+    }
+
+    public void setEstatus(boolean estatus) {
+        this.estatus = estatus;
     }
     
 }

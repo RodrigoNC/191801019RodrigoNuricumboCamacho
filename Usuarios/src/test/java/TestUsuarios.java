@@ -15,7 +15,7 @@ import java.util.Date;
 public class TestUsuarios {
     public static void main(String[] args) {
         Date fecha= new Date();
-        Usuarios usuario= new Usuarios (1, "Rodrigo Nuricumbo Camacho", "191801019", fecha);
+        Usuarios usuario= new Usuarios (1, "Rodrigo Nuricumbo Camacho", "191801019", fecha, true);
         System.out.println(usuario);
     }
 }
