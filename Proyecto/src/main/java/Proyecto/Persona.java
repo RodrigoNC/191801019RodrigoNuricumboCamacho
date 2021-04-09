@@ -9,11 +9,11 @@ package Proyecto;
  *
  * @author Rodrigo
  */
-public class Persona {
+public abstract class Persona {
 
-    String nombre;
-    private String apellidoPaterno, apellidoMaterno, genero;
-    private int edad, rfc;
+    public String nombre;
+    protected String apellidoPaterno, apellidoMaterno, genero;
+    protected int edad, rfc;
     
     public Persona(String nombre, String apellidoPaterno, String apellidoMaterno, String genero, int edad, int rfc){
         this.nombre=nombre;
@@ -31,6 +31,19 @@ public class Persona {
         this.genero="";
         this.edad=0;
         this.rfc=0;
+    }
+    
+    public Persona(String nombre, String apellidoPaterno, String apellidoMaterno, String genero, int edad){
+        this.nombre=nombre;
+        this.apellidoPaterno=apellidoPaterno;
+        this.apellidoMaterno=apellidoMaterno;
+        this.genero=genero;
+        this.edad=edad;
+    }
+    
+    public Persona(String nombre, String genero){
+        this.nombre=nombre;
+        this.genero=genero;
     }
     
     @Override

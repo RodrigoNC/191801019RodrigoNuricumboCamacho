@@ -10,10 +10,10 @@ package Proyecto;
  * @author Rodrigo
  */
 public class Medicamento {
-    private String nombreMedicamento, tipo;
-    private int volumen, fechaCaducidad, clave;
+    private String nombreMedicamento, tipo, fechaCaducidad;
+    private int volumen, clave;
     
-    public Medicamento(String nombreMedicamento, String tipo, int volumen, int fechaCaducidad, int clave){
+    public Medicamento(String nombreMedicamento, String tipo, String fechaCaducidad, int volumen, int clave){
         this.nombreMedicamento=nombreMedicamento;
         this.tipo=tipo;
         this.volumen=volumen;
@@ -25,13 +25,20 @@ public class Medicamento {
         this.nombreMedicamento="";
         this.tipo="";
         this.volumen=0;
-        this.fechaCaducidad=0;
+        this.fechaCaducidad="";
         this.clave=0;
+    }
+    
+    public Medicamento(String nombreMedicamento, String tipo, String fechaCaducidad, int volumen){
+        this.nombreMedicamento=nombreMedicamento;
+        this.tipo=tipo;
+        this.fechaCaducidad=fechaCaducidad;
+        this.volumen=volumen;
     }
     
     @Override
     public String toString(){
-        return "Nombre del medicamento: "+nombreMedicamento+"\nTipo: "+tipo+"\nVolumen: "+volumen+"\nFecha de caducidad: "+fechaCaducidad;
+        return ""+clave+" "+nombreMedicamento;
     }
 
     public String getNombreMedicamento() {
@@ -58,11 +65,11 @@ public class Medicamento {
         this.volumen = volumen;
     }
 
-    public int getFechaCaducidad() {
+    public String getFechaCaducidad() {
         return fechaCaducidad;
     }
 
-    public void setFechaCaducidad(int fechaCaducidad) {
+    public void setFechaCaducidad(String fechaCaducidad) {
         this.fechaCaducidad = fechaCaducidad;
     }
 
@@ -72,5 +79,9 @@ public class Medicamento {
 
     public void setClave(int clave) {
         this.clave = clave;
+    }
+    
+    public String imprimir(){
+        return "Nombre del medicamento: "+nombreMedicamento+"\nTipo: "+tipo+"\nVolumen: "+volumen+"\nFecha de caducidad: "+fechaCaducidad;
     }
 }

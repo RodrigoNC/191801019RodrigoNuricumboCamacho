@@ -5,6 +5,8 @@
  */
 package Proyecto;
 
+import Proyecto.Persona;
+
 /**
  *
  * @author Rodrigo
@@ -26,9 +28,20 @@ public class Empleado extends Persona{
         this.sueldo=0;
     }
     
+    public Empleado(String cargo, int sueldo, String turno, String nombre, String apellidoPaterno, String apellidoMaterno, String genero, int edad){
+        super(nombre, apellidoPaterno, apellidoMaterno, genero, edad);
+        this.cargo=cargo;
+        this.sueldo=sueldo;
+        this.turno=turno;
+    }
+    
     @Override
     public String toString(){
-        return "Cargo: "+cargo+"\nSueldo: "+sueldo;
+        return ""+nombre;
+    }
+
+    public String imprimir(){
+        return "Nombre: "+nombre+"Apellido Paterno: "+apellidoPaterno+"Género: "+genero+" Edad: "+edad+"Cargo "+cargo+"Sueldo: "+sueldo+"Turno: "+turno;
     }
 
     public String getCargo() {

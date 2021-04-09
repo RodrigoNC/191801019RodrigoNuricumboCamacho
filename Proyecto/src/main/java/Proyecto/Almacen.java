@@ -82,6 +82,10 @@ public class Almacen {
         empleados.add(empleado);
     }
     
+    public int cantidadEmpleados(){
+        return empleados.size();
+    }
+    
     public void agregarMedicamento(Medicamento medicamento){
         medicamentos.add(medicamento);
     }
@@ -89,7 +93,7 @@ public class Almacen {
    public String imprimirEmpleadoCompleto(){
         String lista="";
         for(Empleado empleado: empleados){
-            lista+= "Nombre: "+empleado.getNombre()+"\n";
+            lista+= "\nNombre: "+empleado.getNombre()+"\n";
             lista+= "Apellido Paterno: "+empleado.getApellidoPaterno()+"\n";
             lista+= "Apellido Materno: "+empleado.getApellidoMaterno()+"\n";
             lista+= "Edad: "+empleado.getEdad()+"\n";
@@ -111,6 +115,18 @@ public class Almacen {
         return lista;
     }
     
+    public String imprimirMedicamentoCompleto(){
+        String listado="";
+        for(Medicamento medicamento: medicamentos){
+            listado+= "Nombre del medicamento: "+medicamento.getNombreMedicamento()+"\n";
+            listado+= "Tipo: "+medicamento.getTipo()+"\n";
+            listado+= "Volumen: "+medicamento.getVolumen()+"\n";
+            listado+= "Fecha de caducidad: "+medicamento.getFechaCaducidad()+"\n";
+            listado+= "Clave del medicamento: "+medicamento.getClave()+"\n";
+        }
+        return listado;
+    }
+    
     public String imprimirMedicamento(){
         String listado="";
         for(Medicamento medicamento: medicamentos){
@@ -119,5 +135,9 @@ public class Almacen {
             listado+= "Clave del medicamento: "+medicamento.getClave()+"\n";
         }
         return listado;
+    }
+    
+    public int cantidadMedicamentos(){
+        return medicamentos.size();
     }
 }
