@@ -20,7 +20,7 @@ import Proyecto.Registro;
  */
 public class DaRegistro {
         private static String SQL = "jdbc:mysql://localhost:3306/proyecto?zeroDateTimeBehavior=CONVERT_TO_NULL";
-    public static List <Registro> listaRegistro() throws SQLException{
+        public static List <Registro> listaRegistro() throws SQLException{
         List <Registro> listaRegistro = new ArrayList<>();
         Connection conexion = Conexion.getConnection();
         Statement declaracion= conexion.createStatement();
@@ -46,9 +46,10 @@ public class DaRegistro {
     
     public static void eliminar(Registro registro) throws SQLException{
          Connection conexion = Conexion.getConnection();
-         SQL= "DELETE FROM registro WHERE RFC = ?";
+         SQL= "DELETE FROM registro WHERE RFC = ? and Clave = ?";
          PreparedStatement declaracion= conexion.prepareStatement(SQL); 
          declaracion.setInt(1, registro.getRFC());
+         declaracion.setInt(2, registro.getClave());
          declaracion.executeUpdate();
          Conexion.Close(conexion, declaracion);
     }

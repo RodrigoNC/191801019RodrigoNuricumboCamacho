@@ -74,4 +74,5 @@ public class DaEmpleados {
         declaracion.executeUpdate();
         Conexion.Close(conexion, declaracion);
     }
+    
 }

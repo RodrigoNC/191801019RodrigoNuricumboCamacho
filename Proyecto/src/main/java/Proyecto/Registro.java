@@ -11,10 +11,10 @@ package Proyecto;
  */
 public class Registro {
     private int RFC, Clave;
-    
-    public Registro(int RFC, int Clave){
-        this.RFC= RFC;
-        this.Clave= Clave;
+
+    public Registro(int RFC, int Clave) {
+        this.RFC = RFC;
+        this.Clave = Clave;
     }
 
     public Registro() {
@@ -22,7 +22,7 @@ public class Registro {
 
     @Override
     public String toString() {
-        return "Registro{" + "RFC=" + RFC + ", Clave=" + Clave + '}';
+        return "RFC del empleado=" + RFC + ", Clave del medicamento=" + Clave;
     }
 
     public int getRFC() {
@@ -41,4 +41,7 @@ public class Registro {
         this.Clave = Clave;
     }
     
+    public String imprimir() {
+        return "Registro{" + "RFC=" + RFC +  '}';
+    }
 }

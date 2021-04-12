@@ -5,12 +5,11 @@
  */
 package Vista;
 
-import Proyecto.DaEmpleados;
 import Proyecto.DaRegistro;
 import Proyecto.Registro;
+import java.awt.Color;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import static Vista.Principal.Principal;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,6 +41,8 @@ DefaultListModel modelo = new DefaultListModel();
             Logger.getLogger(VistaRegistro.class.getName()).log(Level.SEVERE, null, ex);
         }
         jList1.setModel(modelo);
+        this.setBackground(Color.orange);
+        jPanel1.setBackground(Color.orange);
     }
 
     /**
@@ -79,9 +80,9 @@ DefaultListModel modelo = new DefaultListModel();
         });
         jScrollPane1.setViewportView(jList1);
 
-        jLabel1.setText("RFC");
+        jLabel1.setText("RFC del empleado");
 
-        jLabel2.setText("Clave");
+        jLabel2.setText("Clave del medicamento");
 
         jButton1.setText("Insertar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -108,38 +109,36 @@ DefaultListModel modelo = new DefaultListModel();
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                            .addComponent(jTextField2))
+                        .addGap(74, 74, 74)
+                        .addComponent(jButton1)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addGap(37, 37, 37)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(141, 141, 141)
-                .addComponent(jLabel3)
-                .addContainerGap(167, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addGap(27, 27, 27))
+                .addGap(147, 147, 147)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(161, 161, 161))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel3)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -156,14 +155,14 @@ DefaultListModel modelo = new DefaultListModel();
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -190,10 +189,16 @@ DefaultListModel modelo = new DefaultListModel();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+        int index = jList1.getSelectedIndex();
+        Registro registro = (Registro)modelo.getElementAt(index);
+        jTextField1.setText(""+registro.getRFC());
+        jTextField2.setText(""+registro.getClave());
+    }//GEN-LAST:event_jList1MouseClicked
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int RFC = Integer.parseInt(jTextField1.getText());
-        int Clave = Integer.parseInt(jTextField2.getText());
-        Registro registro = new Registro(RFC, Clave);
+        int index = jList1.getSelectedIndex();
+        Registro registro = (Registro)modelo.getElementAt(index);
         try {
             DaRegistro.eliminar(registro);
         } catch (SQLException ex) {
@@ -203,21 +208,14 @@ DefaultListModel modelo = new DefaultListModel();
             jTextField1.setText("");
             jTextField2.setText("");
             try{
-                    this.crearModelo();
-                    JOptionPane.showMessageDialog(null, "Registro eliminado correctamente");
+                this.crearModelo();
+                JOptionPane.showMessageDialog(null, "Registro eliminado correctamente");
             } catch (SQLException ex){
-                    Logger.getLogger(VistaRegistro.class.getName()).log(Level.SEVERE, null, ex);
-                    JOptionPane.showMessageDialog(null, "Error: Registro no eliminado");
-                }
+                Logger.getLogger(VistaRegistro.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null, "Error: Registro no eliminado");
+            }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
-        int index = jList1.getSelectedIndex();
-        Registro registro = (Registro)modelo.getElementAt(index);
-        jTextField1.setText(""+registro.getRFC());
-        jTextField2.setText(""+registro.getClave());
-    }//GEN-LAST:event_jList1MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
