@@ -173,18 +173,18 @@ DefaultListModel modelo = new DefaultListModel();
         Registro registro = new Registro(RFC, Clave);
         try {
             DaRegistro.insertar(registro);
+            JOptionPane.showMessageDialog(null, "Registro insertado correctamente");
         } catch (SQLException ex) {
             Logger.getLogger(VistaRegistro.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error: Registro no insertado");
         }
         finally{
             jTextField1.setText("");
             jTextField2.setText("");
             try{
                     this.crearModelo();
-                    JOptionPane.showMessageDialog(null, "Registro insertado correctamente");
             } catch (SQLException ex){
                     Logger.getLogger(VistaRegistro.class.getName()).log(Level.SEVERE, null, ex);
-                    JOptionPane.showMessageDialog(null, "Error: Registro no insertado");
                 }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
